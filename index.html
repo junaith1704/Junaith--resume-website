@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mohammed Junaith Sulthan - Resume</title>
+
+  <style>
+    body {
+      background-color: #e6c9a8; /* beige background */
+      color: #2d3748;
+      font-family: Arial;
+      margin: 0;
+    }
+
+    header {
+      padding: 20px;
+      border-bottom: 2px solid white;
+    }
+
+    h1 {
+      color: #2d3748;
+    }
+
+    h2 {
+      color: #a52a2a; /* dark red */
+    }
+
+    section {
+      background-color: #e5e5e5; /* light gray card */
+      padding: 25px;
+      margin: 30px auto;
+      max-width: 900px;
+      border-radius: 10px;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    button {
+      margin: 10px 0;
+      padding: 8px 14px;
+      background-color: #d6d6d6;
+      color: #a52a2a;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #a52a2a;
+      color: white;
+    }
+
+    /* Skill bars */
+    .skill-bar {
+      background-color: #cbd5e1;
+      height: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    .fill {
+      background-color: #a52a2a; /* red fill */
+      height: 100%;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Mohammed Junaith Sulthan.J</h1>
+    <p>Chennai, India</p>
+    <p>junaith2006@gmail.com | 7448909484</p>
+  </header>
+
+  <!-- Career -->
+  <section>
+    <h2>Career Objective</h2>
+    <button onclick="showCareer()">View Details</button>
+    <p id="career"></p>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <h2>Education</h2>
+    <button onclick="showEducation()">View Details</button>
+    <p id="education"></p>
+  </section>
+
+  <!-- Skills -->
+  <section>
+    <h2>Technical Skills</h2>
+    <button onclick="showSkills()">View Details</button>
+    <div id="skills"></div>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h2>Projects</h2>
+    <button onclick="showProjects()">View Details</button>
+    <p id="projects"></p>
+  </section>
+
+  <!-- Certifications -->
+  <section>
+    <h2>Certifications</h2>
+    <button onclick="showCert()">View Details</button>
+    <p id="cert"></p>
+  </section>
+
+  <script>
+    function showCareer() {
+      document.getElementById("career").innerHTML =
+       " Aspiring AI/ML Engineer focused on building practical machine learning and computer vision applications.<br>" + "Strong interest in developing real-world AI solutions and continuously improving technical depth through hands-on projects."
+    }
+
+    function showEducation() {
+      document.getElementById("education").innerHTML =
+        "* B.E CSE (AI & ML), Sathyabama University<br>" +
+        "* 12th, Velammal Bodhi Campus";
+    }
+
+    function showSkills() {
+      document.getElementById("skills").innerHTML =
+
+        "<b>Programming:</b> Python (85%)<br>" +
+        "<div class='skill-bar'><div class='fill' style='width:85%'></div></div>" +
+
+        "<b>AI/ML:</b> CNN, Image Classification, Computer Vision (85%)<br>" +
+        "<div class='skill-bar'><div class='fill' style='width:85%'></div></div>" +
+
+        "<b>Tools & Technologies:</b> TensorFlow, OpenCV, NumPy, Pandas, GitHub (85%)<br>" +
+        "<div class='skill-bar'><div class='fill' style='width:85%'></div></div>" +
+
+        "<b>Web Development:</b> HTML, CSS , Javascipt (70%)<br>" +
+        "<div class='skill-bar'><div class='fill' style='width:70%'></div></div>" +
+
+        "<b>Hardware:</b> Robotics (Sumo Bot) (65%)<br>" +
+        "<div class='skill-bar'><div class='fill' style='width:65%'></div></div>" +
+
+        "<b>Core Strengths:</b> Problem Solving, Critical Thinking , Time Management (85%)<br>" +
+        "<div class='skill-bar'><div class='fill' style='width:85%'></div></div>";
+    }
+
+    function showProjects() {
+      document.getElementById("projects").innerHTML =
+        "* Drowsiness Detection System<br>" +
+        "* Controller-Based Sumo Bot<br>" +
+        "* Deep Learning Models<br>" +
+        "* AI Web Applications";
+    }
+
+    function showCert() {
+      document.getElementById("cert").innerHTML =
+        "* Machine Learning<br>" +
+        "* Deep Learning Specialization<br>" +
+        "* Python for Data Science";
+    }
+  </script>
+
+</body>
+</html>
