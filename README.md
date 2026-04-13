@@ -1,2 +1,3 @@
-# Junaith--PORTFOLIO
+# Junaith--resume
+
 My personal portfolio , showcasing my projects and skills.
