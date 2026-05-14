@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Junaith Sulthan — AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a24;
+    --accent: #00e5ff;
+    --accent2: #7c3aed;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --border: #2a2a38;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; overflow-x: hidden; }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none; z-index: 0;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Space Mono', monospace; font-size: 0.9rem; color: var(--accent); letter-spacing: 2px; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 4rem 4rem; position: relative; z-index: 1; }
+  .hero-content { max-width: 700px; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
+  h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -1px; }
+  h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-desc { font-size: 1.1rem; color: var(--muted); line-height: 1.7; margin-bottom: 2.5rem; max-width: 560px; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { padding: 0.8rem 1.8rem; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: all 0.2s; cursor: pointer; display: inline-block; }
+  .btn-primary { background: var(--accent); color: #000; border: 2px solid var(--accent); }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+  .btn-outline { background: transparent; color: var(--text); border: 2px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .glow-orb { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%); right: 5%; top: 20%; pointer-events: none; }
+  section { padding: 6rem 4rem; position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .section-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.5px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .about-text { color: var(--muted); line-height: 1.8; font-size: 1rem; }
+  .about-text p { margin-bottom: 1rem; }
+  .info-list { list-style: none; }
+  .info-list li { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .info-list li span:first-child { color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.75rem; }
+  .info-list li span:last-child { color: var(--text); font-weight: 600; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .skill-card-title { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag { padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-weight: 600; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+  .project-card:hover::before { opacity: 1; }
+  .project-num { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; margin-bottom: 1rem; }
+  .project-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+  .stack-tag { padding: 3px 10px; border-radius: 4px; font-size: 0.72rem; font-family: 'Space Mono', monospace; background: rgba(0,229,255,0.08); color: var(--accent); border: 1px solid rgba(0,229,255,0.2); }
+  .project-link { display: inline-flex; align-items: center; gap: 6px; color: var(--text); text-decoration: none; font-size: 0.8rem; font-family: 'Space Mono', monospace; transition: color 0.2s; }
+  .project-link:hover { color: var(--accent); }
+  .project-link::after { content: ' →'; }
+  .certs-list { display: flex; flex-direction: column; gap: 1rem; }
+  .cert-item { display: flex; align-items: center; gap: 1.5rem; padding: 1.2rem 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.2s; }
+  .cert-item:hover { border-color: var(--accent); }
+  .cert-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(0,229,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .cert-name { font-weight: 700; font-size: 0.95rem; }
+  .cert-by { color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
+  .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 3rem; text-align: center; }
+  .contact-box h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+  .contact-box p { color: var(--muted); margin-bottom: 2rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  footer { text-align: center; padding: 2rem; color: var(--muted); font-family: 'Space Mono', monospace; font-size: 0.75rem; border-top: 1px solid var(--border); position: relative; z-index: 1; }
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.6s forwards; }
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in:nth-child(4) { animation-delay: 0.4s; }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">MJS.DEV</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag fade-in">AI & ML Engineer</div>
+    <h1 class="fade-in">Mohammed<br><span>Junaith</span><br>Sulthan</h1>
+    <p class="hero-desc fade-in">B.E CSE (AI & ML) student at Sathyabama University, Chennai. Building real-world AI systems — from drowsiness detection in simulators to deployed ML web apps.</p>
+    <div class="hero-buttons fade-in">
+      <a href="https://github.com/junaith1704" target="_blank" class="btn btn-primary">GitHub</a>
+      <a href="https://linkedin.com/in/mohammed-junaith-sulthan-j" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="mailto:junaith2006@gmail.com" target="_blank" class="btn btn-outline">Email Me</a>
+    </div>
+  </div>
+  <div class="glow-orb"></div>
+</div>
+
+<section id="about">
+  <div class="section-label">01 / About</div>
+  <div class="section-title">Who I am</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a passionate AI/ML student from Madurai, currently studying at Sathyabama University, Chennai. I love building things that actually work — not just notebook experiments.</p>
+      <p>From integrating CNN models with CARLA simulator to deploying prediction apps with Streamlit, I focus on end-to-end projects that show real results.</p>
+      <p>Always exploring new ideas — from internships to building my own startup someday.</p>
+    </div>
+    <ul class="info-list">
+      <li><span>Location</span><span>Chennai, Tamil Nadu</span></li>
+      <li><span>Degree</span><span>B.E CSE (AI & ML)</span></li>
+      <li><span>University</span><span>Sathyabama University</span></li>
+      <li><span>Batch</span><span>2024–2028</span></li>
+      <li><span>Email</span><span>junaith2006@gmail.com</span></li>
+      <li><span>Status</span><span>Open to Opportunities ✅</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-label">02 / Skills</div>
+  <div class="section-title">What I work with</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">Programming</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">C++</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">AI / ML Frameworks</div>
+      <div class="skill-tags">
+        <span class="tag">TensorFlow</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">Keras</span>
+        <span class="tag">Scikit-learn</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Core Expertise</div>
+      <div class="skill-tags">
+        <span class="tag">CNNs</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">OpenCV</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Data & Tools</div>
+      <div class="skill-tags">
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">Jupyter</span>
+        <span class="tag">Google Colab</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Deployment</div>
+      <div class="skill-tags">
+        <span class="tag">Streamlit</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Joblib</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Simulators & Hardware</div>
+      <div class="skill-tags">
+        <span class="tag">CARLA</span>
+        <span class="tag">Pygame</span>
+        <span class="tag">Robotics</span>
+        <span class="tag">Embedded Systems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">03 / Projects</div>
+  <div class="section-title">Things I've built</div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">PROJECT 01</div>
+      <div class="project-title">Driver Drowsiness Detection</div>
+      <p class="project-desc">Real-time drowsiness detection using CNN + mobile webcam, integrated with CARLA driving simulator. Detects alert vs drowsy state and triggers live alerts in simulation.</p>
+      <div class="project-stack">
+        <span class="stack-tag">TensorFlow</span>
+        <span class="stack-tag">OpenCV</span>
+        <span class="stack-tag">CARLA</span>
+        <span class="stack-tag">Pygame</span>
+        <span class="stack-tag">CNN</span>
+      </div>
+      <a href="https://github.com/junaith1704/drowsiness-detection-carla" target="_blank" class="project-link">View on GitHub</a>
+    </div>
+    <div class="project-card">
+      <div class="project-num">PROJECT 02</div>
+      <div class="project-title">Heart Disease Prediction App</div>
+      <p class="project-desc">ML model that predicts heart disease risk based on medical data. Deployed as an interactive web app using Streamlit with real-time predictions.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Scikit-learn</span>
+        <span class="stack-tag">Streamlit</span>
+        <span class="stack-tag">Joblib</span>
+        <span class="stack-tag">Pandas</span>
+      </div>
+      <a href="https://github.com/junaith1704/Heart-Disease-prediction-" target="_blank" class="project-link">View on GitHub</a>
+    </div>
+    <div class="project-card">
+      <div class="project-num">PROJECT 03</div>
+      <div class="project-title">Controller-Based Sumo Bot</div>
+      <p class="project-desc">Built and programmed a Sumo Bot with hardware integration and control logic for movement and opponent engagement. Showcases robotics and embedded systems skills.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Robotics</span>
+        <span class="stack-tag">Embedded Systems</span>
+        <span class="stack-tag">Hardware</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="section-label">04 / Certifications</div>
+  <div class="section-title">Courses completed</div>
+  <div class="certs-list">
+    <div class="cert-item">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-name">n8n Course: No Code AI Agent Builder</div>
+        <div class="cert-by">Simplilearn SkillUp — September 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <div class="section-label" style="margin-bottom:1rem">05 / Contact</div>
+    <h2>Let's connect</h2>
+    <p>Open to internships, collaborations, project ideas, and startup opportunities. Feel free to reach out!</p>
+    <div class="contact-links">
+      <a href="mailto:junaith2006@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="https://github.com/junaith1704" target="_blank" class="btn btn-outline">GitHub</a>
+      <a href="https://linkedin.com/in/mohammed-junaith-sulthan-j" target="_blank" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Mohammed Junaith Sulthan — Built with HTML, CSS & passion for AI
+</footer>
+
+</body>
+</html>
